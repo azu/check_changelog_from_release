@@ -25,18 +25,6 @@ var treePromise = new Promise(function (resolve, reject) {
     })
 });
 
-function getFileRawPromisefy(URL) {
-    return new Promise(function (resolve, reject) {
-        githubAPI.getFileRawContent(URL, function (error, result) {
-            if (error) {
-                reject(error);
-            } else {
-                console.log(result);
-                resolve(result);
-            }
-        });
-    });
-}
 treePromise.then(JSON.parse)
     .then(searcher.findChangeLogInTrees)
     .then(function (result) {
