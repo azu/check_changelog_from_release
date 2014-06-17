@@ -29,7 +29,7 @@ treePromise.then(JSON.parse)
     .then(searcher.findChangeLogInTrees)
     .then(function (result) {
         if (!result) {
-            return Promsie.reject(new Error("Not found CHANGELOG in Repogitory."));
+            return Promise.reject(new Error("Not found CHANGELOG in Repogitory."));
         }
         injector.injectChangelogLink(result.path);
     })
