@@ -1,5 +1,7 @@
 # check_changelog_from_release
 
+This Greasemonkey script can check CHANGELOG file from Github Relase page.
+
 ![img](http://take.ms/qtPJs)
 
 ## Installation
