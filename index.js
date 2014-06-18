@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        CheckChangelogFromGithubRelease
 // @namespace   http://efcl.info/
-// @description Check ChangeLog
+// @description Check ChangeLog from Github Relase page.
 // @license     MIT
 // @include     https://github.com/*/*/releases/tag/*
 // @version     1

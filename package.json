@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "browserify index.js",
+    "build": "browserify index.js -o CheckChangelogFromGithubRelease.user.js",
     "test": "mocha test/*.js"
   },
   "directories": {

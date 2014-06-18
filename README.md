@@ -6,7 +6,7 @@
 
 ``` sh
 npm install
-npm run build > check_changelog_from_release.user.js
+npm run build
 ```
 
 ## Contributing
