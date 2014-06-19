@@ -4,7 +4,7 @@
 // @description Check ChangeLog from Github Relase page.
 // @license     MIT
 // @include     https://github.com/*/*/releases/tag/*
-// @version     1
+// @version     1.1
 // ==/UserScript==
 "use strict";
 var githubAPI = require("./lib/github_api");
