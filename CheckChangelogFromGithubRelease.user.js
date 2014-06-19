@@ -147,7 +147,7 @@ function findChangeLogInTrees(trees) {
     }
     var tree = trees["tree"];
     var result = find(tree, function (object) {
-        return /^changelog/i.test(object.path);
+        return /(^changelog|^history)/i.test(object.path);
     });
     return result;
 }
