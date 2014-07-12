@@ -5,7 +5,8 @@
 // @description Check ChangeLog from Github Relase page.
 // @license     MIT
 // @include     https://github.com/*/*/releases/tag/*
-// @version     1
+// @version     1.1
+// @grant GM_xmlhttpRequest
 // ==/UserScript==
 "use strict";
 var githubAPI = require("./lib/github_api");
@@ -147,7 +148,7 @@ function findChangeLogInTrees(trees) {
     }
     var tree = trees["tree"];
     var result = find(tree, function (object) {
-        return /(^changelog|^history)/i.test(object.path);
+        return /(^changes|^changelog|^history)/i.test(object.path);
     });
     return result;
 }

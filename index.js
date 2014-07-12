@@ -5,6 +5,7 @@
 // @license     MIT
 // @include     https://github.com/*/*/releases/tag/*
 // @version     1.1
+// @grant       GM_xmlhttpRequest
 // ==/UserScript==
 "use strict";
 var githubAPI = require("./lib/github_api");
@@ -20,6 +21,7 @@ var treePromise = new Promise(function (resolve, reject) {
         if (error) {
             reject(error);
         } else {
+            console.log(res);
             resolve(res);
         }
     })
