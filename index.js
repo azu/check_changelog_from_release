@@ -16,12 +16,11 @@ var treePromise = new Promise(function (resolve, reject) {
     githubAPI.getTree({
         "owner": githubDOM.getOwner(),
         "name": githubDOM.getRepoName(),
-        "sha": githubDOM.getSha()
+        "tagName": githubDOM.getTagName()
     }, function (error, res) {
         if (error) {
             reject(error);
         } else {
-            console.log(res);
             resolve(res);
         }
     })

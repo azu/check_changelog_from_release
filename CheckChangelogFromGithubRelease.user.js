@@ -17,7 +17,7 @@ var treePromise = new Promise(function (resolve, reject) {
     githubAPI.getTree({
         "owner": githubDOM.getOwner(),
         "name": githubDOM.getRepoName(),
-        "sha": githubDOM.getSha()
+        "sha": githubDOM.getTagName()
     }, function (error, res) {
         if (error) {
             reject(error);
@@ -130,7 +130,7 @@ const GITHUBDOMAIN = "https://github.com/";
 function injectChangelogLink(filePath) {
     var span = document.createElement("span");
     var a = document.createElement("a");
-    a.href = GITHUBDOMAIN + githubDOM.getRepo() + "/blob/"+ githubDOM.getBranch() + "/" + filePath;
+    a.href = GITHUBDOMAIN + githubDOM.getRepo() + "/blob/"+ githubDOM.getTagName() + "/" + filePath;
     a.textContent = "CHANGELOG FILE";
     span.appendChild(a);
     releaseMeta.appendChild(span);
@@ -138,7 +138,7 @@ function injectChangelogLink(filePath) {
 
 module.exports = {
     injectChangelogLink: injectChangelogLink
-}
+};
 },{"./github_dom":3}],5:[function(require,module,exports){
 /**
  * Created by azu on 2014/06/18.
