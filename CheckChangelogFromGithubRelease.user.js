@@ -5,8 +5,8 @@
 // @description Check ChangeLog from Github Relase page.
 // @license     MIT
 // @include     https://github.com/*/*/releases/tag/*
-// @version     1.1
-// @grant GM_xmlhttpRequest
+// @version     1.2
+// @grant       GM_xmlhttpRequest
 // ==/UserScript==
 "use strict";
 var githubAPI = require("./lib/github_api");
@@ -22,6 +22,7 @@ var treePromise = new Promise(function (resolve, reject) {
         if (error) {
             reject(error);
         } else {
+            console.log(res);
             resolve(res);
         }
     })
@@ -57,7 +58,11 @@ function getTree(repoObject, callback) {
         method: "GET",
         url: treeAPI,
         onload: function (res) {
-            callback(null, res.responseText);
+            if (res.status === 201 || res.status == 200) {
+                callback(null, res.responseText);
+            } else {
+                callback(new Error(res.statusText));
+            }
         },
         onerror: function (res) {
             callback(res);
@@ -91,11 +96,10 @@ module.exports = {
 "use strict";
 var commandBar = document.getElementById("js-command-bar-field");
 function getOwner() {
-    var owner = commandBar.dataset.repo.split("/").shift();
-    return owner
+    return commandBar.dataset.repo.split("/").shift()
 }
 function getSha() {
-    return commandBar.dataset.sha;
+    return location.pathname.split("/").pop();
 }
 function getRepoName() {
     var repo = commandBar.dataset.repo.split("/").pop()
