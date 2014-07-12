@@ -4,7 +4,7 @@
 // @description Check ChangeLog from Github Relase page.
 // @license     MIT
 // @include     https://github.com/*/*/releases/tag/*
-// @version     1.2
+// @version     1.2.1
 // @grant       GM_xmlhttpRequest
 // ==/UserScript==
 "use strict";
