@@ -5,7 +5,7 @@
 // @description Check ChangeLog from Github Relase page.
 // @license     MIT
 // @include     https://github.com/*/*/releases/tag/*
-// @version     1.2
+// @version     1.2.1
 // @grant       GM_xmlhttpRequest
 // ==/UserScript==
 "use strict";
@@ -17,12 +17,11 @@ var treePromise = new Promise(function (resolve, reject) {
     githubAPI.getTree({
         "owner": githubDOM.getOwner(),
         "name": githubDOM.getRepoName(),
-        "sha": githubDOM.getTagName()
+        "tagName": githubDOM.getTagName()
     }, function (error, res) {
         if (error) {
             reject(error);
         } else {
-            console.log(res);
             resolve(res);
         }
     })
@@ -52,7 +51,7 @@ treePromise.then(JSON.parse)
 function getTree(repoObject, callback) {
     var owner = repoObject.owner,
         repoName = repoObject.name,
-        sha = repoObject.sha;
+        sha = repoObject.tagName;
     var treeAPI = "https://api.github.com/repos/" + owner + "/" + repoName + "/git/trees/" + sha;
     GM_xmlhttpRequest({
         method: "GET",
@@ -98,7 +97,7 @@ var commandBar = document.getElementById("js-command-bar-field");
 function getOwner() {
     return commandBar.dataset.repo.split("/").shift()
 }
-function getSha() {
+function getTagName() {
     return location.pathname.split("/").pop();
 }
 function getRepoName() {
@@ -113,7 +112,7 @@ function getBranch() {
 }
 module.exports = {
     getRepoName: getRepoName,
-    getSha: getSha,
+    getTagName: getTagName,
     getOwner: getOwner,
     getRepo: getRepo,
     getBranch: getBranch
