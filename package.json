@@ -27,6 +27,7 @@
     "watchify": "^0.10.2"
   },
   "dependencies": {
+    "github-release-dom": "git://github.com/azu/github-release-dom.git",
     "lodash.find": "^2.4.1"
   }
 }

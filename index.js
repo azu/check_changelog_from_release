@@ -9,15 +9,11 @@
 // ==/UserScript==
 "use strict";
 var githubAPI = require("./lib/github_api");
-var githubDOM = require("./lib/github_dom");
 var searcher = require("./lib/seacher");
 var injector = require("./lib/injector");
+var ghObject = require("github-release-dom")(location.href);
 var treePromise = new Promise(function (resolve, reject) {
-    githubAPI.getTree({
-        "owner": githubDOM.getOwner(),
-        "name": githubDOM.getRepoName(),
-        "tagName": githubDOM.getTagName()
-    }, function (error, res) {
+    githubAPI.getTree(ghObject, function (error, res) {
         if (error) {
             reject(error);
         } else {
