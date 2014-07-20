@@ -1,4 +1,4 @@
-# check_changelog_from_release
+# Check CHANGELOG from Github Release
 
 This Greasemonkey script can check CHANGELOG file from Github Relase page.
 
@@ -6,9 +6,13 @@ This Greasemonkey script can check CHANGELOG file from Github Relase page.
 
 ## Installation
 
+Install from [CheckChangelogFromGithubRelease.user.js](https://github.com/azu/check_changelog_from_release/raw/master/CheckChangelogFromGithubRelease.user.js)
+
+## Develop
+
 ``` sh
 npm install
-npm run build
+npm run watch
 ```
 
 ## Contributing
