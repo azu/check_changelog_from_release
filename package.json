@@ -1,7 +1,7 @@
 {
   "name": "check_changelog_from_release",
   "description": "Check changelog @ Greasemonkey",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/azu/check_changelog_from_release/",
   "repository": {
     "type": "git",
