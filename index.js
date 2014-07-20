@@ -28,7 +28,7 @@ treePromise.then(JSON.parse)
         if (!result) {
             return Promise.reject(new Error("Not found CHANGELOG in Repogitory."));
         }
-        injector.injectChangelogLink(result.path);
+        injector.injectChangelogLink(ghObject, result.path);
     })
     .catch(function (error) {
         console.error(error);
